@@ -3,6 +3,8 @@ var app = express()
 var mongoose = require('mongoose')
 const Product = require('./models/product')
 
+let port = process.env.PORT || 9000
+
 app.use(express.json())
 
 // Home page
@@ -71,8 +73,8 @@ app.delete('/product/:id', async (req,res, next)=> {
 mongoose.connect('mongodb+srv://ogbunikejude:08069055060Abc@jude-cluster.qbsiy.mongodb.net/mongodbtutorial?retryWrites=true&w=majority', {
     useNewUrlParser: true,
 useUnifiedTopology: true}). then (()=> {
-    app.listen(9000, ()=>{
-    console.log('Server running at port 9000')
+    app.listen(port, ()=>{
+    console.log(`Server running at port :${port}`)
 }) 
 console.log('mongoDB connected') 
 })
