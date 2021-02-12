@@ -1,20 +1,19 @@
-const router = require('express').Router()
+const router = require('express').Router();
 const {
-    // homePage,
-    createProduct,
-    getAllProduct,
-    getProduct,
-    updateProduct,
-    deleteProduct
-} = require('../controllers/product.controller')
-const {checkAuthorization} = require('../controllers/user.controller')
+	createProduct,
+	getAllProduct,
+	getProduct,
+	updateProduct,
+	deleteProduct,
+} = require('../controllers/product.controller');
+const { checkAuthorization } = require('../controllers/user.controller');
 
-router.route('/').get(checkAuthorization,getAllProduct).post(createProduct)
+router.route('/').get(checkAuthorization, getAllProduct).post(createProduct);
 
 router
-.route('/:slug')
-.get(getProduct)
-.patch(updateProduct)
-.delete(deleteProduct)
+	.route('/:slug')
+	.get(getProduct)
+	.patch(updateProduct)
+	.delete(deleteProduct);
 
-module.exports = router
+module.exports = router;
